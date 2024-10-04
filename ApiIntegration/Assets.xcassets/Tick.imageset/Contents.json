@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "TICK_BG_REMOVED.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "correct_tick.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "TICK_BG_REMOVED 1.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
