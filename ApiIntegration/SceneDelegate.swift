@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let _ = UserDefaults.standard.string(forKey: "accessToken") {
             // User is logged in, navigate to Details Page
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let detailsVC = storyboard.instantiateViewController(withIdentifier: "DetailsController") as! DetailsController
+            let detailsVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
             window?.rootViewController = UINavigationController(rootViewController: detailsVC)
             window?.makeKeyAndVisible()
         } else {
