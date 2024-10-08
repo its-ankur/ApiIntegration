@@ -16,16 +16,28 @@ class TabBarViewController: UITabBarController {
         // Hide the navigation bar for this view controller
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
+        // Hide the back button
+        self.navigationItem.hidesBackButton = true
+        
         // Add swipe gesture recognizers for left and right swipes
         addSwipeGestures()
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+//    override func viewWillDisappear(_ animated: Bool) {
+//        super.viewWillDisappear(animated)
+//        
+//        // Ensure the navigation bar is shown again when navigating away
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        // Ensure the navigation bar is shown again when navigating away
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        // Hide the navigation bar and back button when the view appears
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        self.navigationItem.hidesBackButton = true
     }
     
     // Add swipe gestures for left and right
