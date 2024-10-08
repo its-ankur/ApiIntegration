@@ -552,23 +552,38 @@
                                     <action selector="backButtonPressed:" destination="i4n-be-Due" eventType="touchUpInside" id="xrp-i6-dfE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYa-LJ-BKS">
+                                <rect key="frame" x="20" y="412" width="280" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Share" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="shareButton:" destination="2Qm-i2-Sm6" eventType="touchUpInside" id="NbQ-Is-zKb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="4gx-2a-3rt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="4gx-2a-3rt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ny2-wC-Oba" secondAttribute="trailing" symbolic="YES" id="1cT-MF-05I"/>
+                            <constraint firstItem="xYa-LJ-BKS" firstAttribute="leading" secondItem="4gx-2a-3rt" secondAttribute="leading" constant="20" id="2n0-Ot-PZc"/>
                             <constraint firstItem="ny2-wC-Oba" firstAttribute="top" secondItem="4gx-2a-3rt" secondAttribute="top" constant="10" id="7cy-UL-W6b"/>
                             <constraint firstItem="o3Q-jS-iaB" firstAttribute="centerX" secondItem="fDz-W2-7rY" secondAttribute="centerX" id="7tM-Cp-cQx"/>
                             <constraint firstItem="bvn-nP-IjT" firstAttribute="top" secondItem="o3Q-jS-iaB" secondAttribute="bottom" constant="20" id="8oq-bk-Ycm"/>
                             <constraint firstItem="ny2-wC-Oba" firstAttribute="leading" secondItem="4gx-2a-3rt" secondAttribute="leading" constant="20" id="9oc-z7-yMm"/>
                             <constraint firstItem="o3Q-jS-iaB" firstAttribute="centerX" secondItem="fDz-W2-7rY" secondAttribute="centerX" id="Do9-N6-N3h"/>
                             <constraint firstItem="uEt-a4-yn3" firstAttribute="leading" secondItem="4gx-2a-3rt" secondAttribute="leading" constant="20" id="Khh-L6-K9O"/>
+                            <constraint firstItem="xYa-LJ-BKS" firstAttribute="centerX" secondItem="fDz-W2-7rY" secondAttribute="centerX" id="MUo-Ka-2iH"/>
                             <constraint firstItem="bvn-nP-IjT" firstAttribute="leading" secondItem="4gx-2a-3rt" secondAttribute="leading" constant="20" id="Nor-Ai-Dxo"/>
                             <constraint firstItem="o3Q-jS-iaB" firstAttribute="top" secondItem="uEt-a4-yn3" secondAttribute="bottom" constant="50" id="RH5-4Y-tb8"/>
                             <constraint firstItem="uEt-a4-yn3" firstAttribute="top" secondItem="4gx-2a-3rt" secondAttribute="top" constant="50" id="RaO-eM-D3d"/>
                             <constraint firstItem="bvn-nP-IjT" firstAttribute="centerX" secondItem="fDz-W2-7rY" secondAttribute="centerX" id="cQV-91-YLb"/>
                             <constraint firstItem="uEt-a4-yn3" firstAttribute="centerX" secondItem="fDz-W2-7rY" secondAttribute="centerX" id="f3m-Lb-5t9"/>
                             <constraint firstItem="4gx-2a-3rt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uEt-a4-yn3" secondAttribute="trailing" id="geh-AE-dPp"/>
+                            <constraint firstItem="4gx-2a-3rt" firstAttribute="trailing" secondItem="xYa-LJ-BKS" secondAttribute="trailing" constant="20" id="m6o-ei-bhT"/>
+                            <constraint firstItem="xYa-LJ-BKS" firstAttribute="top" secondItem="bvn-nP-IjT" secondAttribute="bottom" constant="10" id="yri-fN-Jdg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -623,6 +638,17 @@
                                     <action selector="backButtonPressed:" destination="pbX-d7-qyd" eventType="touchUpInside" id="eNu-tp-F1e"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebk-Fc-kgD">
+                                <rect key="frame" x="20" y="302" width="280" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Share" cornerStyle="capsule">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="shareButton:" destination="pbX-d7-qyd" eventType="touchUpInside" id="nhd-cU-MOW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yQK-NH-9nZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -636,9 +662,13 @@
                             <constraint firstItem="Rx1-yM-oWy" firstAttribute="centerX" secondItem="ch7-jo-ElD" secondAttribute="centerX" id="dSp-FD-qT8"/>
                             <constraint firstItem="COb-tB-Zm0" firstAttribute="top" secondItem="fjY-g2-Jg4" secondAttribute="bottom" constant="20" id="ktt-c1-0dp"/>
                             <constraint firstItem="9PY-sr-fwB" firstAttribute="top" secondItem="yQK-NH-9nZ" secondAttribute="top" constant="10" id="lH1-Jn-Sgs"/>
+                            <constraint firstItem="Ebk-Fc-kgD" firstAttribute="top" secondItem="COb-tB-Zm0" secondAttribute="bottom" constant="10" id="pVF-Of-nfs"/>
                             <constraint firstItem="fjY-g2-Jg4" firstAttribute="centerX" secondItem="ch7-jo-ElD" secondAttribute="centerX" id="rSs-RA-As2"/>
                             <constraint firstItem="Rx1-yM-oWy" firstAttribute="centerX" secondItem="ch7-jo-ElD" secondAttribute="centerX" id="u7M-x5-Pec"/>
+                            <constraint firstItem="Ebk-Fc-kgD" firstAttribute="leading" secondItem="yQK-NH-9nZ" secondAttribute="leading" constant="20" id="vrD-GM-Snp"/>
+                            <constraint firstItem="Ebk-Fc-kgD" firstAttribute="centerX" secondItem="ch7-jo-ElD" secondAttribute="centerX" id="vrS-Jk-k7x"/>
                             <constraint firstItem="COb-tB-Zm0" firstAttribute="centerX" secondItem="ch7-jo-ElD" secondAttribute="centerX" id="wok-2q-exa"/>
+                            <constraint firstItem="yQK-NH-9nZ" firstAttribute="trailing" secondItem="Ebk-Fc-kgD" secondAttribute="trailing" constant="20" id="zeB-HE-DHT"/>
                         </constraints>
                     </view>
                     <connections>
