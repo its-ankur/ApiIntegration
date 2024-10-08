@@ -157,6 +157,8 @@
 				DEVELOPMENT_TEAM = 34YDR6ZH77;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ApiIntegration/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to the camera to scan QR codes and barcodes.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to the photo library to allow users to upload images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -185,6 +187,8 @@
 				DEVELOPMENT_TEAM = 34YDR6ZH77;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ApiIntegration/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs access to the camera to scan QR codes and barcodes.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to the photo library to allow users to upload images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
