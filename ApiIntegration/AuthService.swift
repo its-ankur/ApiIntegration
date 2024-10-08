@@ -18,6 +18,9 @@ struct User: Codable {
 class AuthService {
     static let shared = AuthService()
     
+    private var isRequestInProgress: Bool = false
+    private var ongoingRequest: DataRequest? // Store ongoing request
+    
     // Function to check if the access token is expired
     func isTokenExpired() -> Bool {
         if let expiresAt = UserDefaults.standard.object(forKey: "expiresAt") as? Date {
@@ -25,55 +28,69 @@ class AuthService {
         }
         return true // If no expiration date is found, consider the token expired
     }
-
+    
+    // Function to refresh the access token using refreshToken
     // Function to refresh the access token using refreshToken
     func refreshToken(completion: @escaping (Result<String, Error>) -> Void) {
+        // Check if another request is already in progress
+        guard !isRequestInProgress else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Request already in progress"])))
+            return
+        }
+        
+        isRequestInProgress = true // Set the flag to prevent new requests
+        
         guard let refreshToken = UserDefaults.standard.string(forKey: "refreshToken") else {
+            isRequestInProgress = false // Reset the flag on failure
             completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No refresh token available"])))
             return
         }
         
-        let url = URL(string: "https://dummyjson.com/auth/refresh")!
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        // Prepare the body with refresh token
-        let body: [String: Any] = [
+        let url = "https://dummyjson.com/auth/refresh" // Update to use Alamofire
+        let parameters: [String: Any] = [
             "refreshToken": refreshToken,
             "expiresInMins": 30 // Optional
         ]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
         
-        // Make the network request
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {
-                completion(.failure(error!))
-                return
-            }
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let newAccessToken = json["accessToken"] as? String,
-                   let newRefreshToken = json["refreshToken"] as? String {
-
-                    // Save the new tokens and calculate new expiration time
-                    UserDefaults.standard.set(newAccessToken, forKey: "accessToken")
-                    UserDefaults.standard.set(newRefreshToken, forKey: "refreshToken")
-                    let expiresAt = Date().addingTimeInterval(30 * 60) // 30 minutes
-                    UserDefaults.standard.set(expiresAt, forKey: "expiresAt")
-
-                    completion(.success(newAccessToken))
-                } else {
-                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])))
+        // Make the network request using Alamofire
+        ongoingRequest = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+            .validate()
+            .responseJSON { [weak self] response in
+                guard let self = self else { return }
+                defer { self.isRequestInProgress = false } // Ensure flag is reset when request is complete
+                
+                switch response.result {
+                case .success(let json):
+                    if let jsonDict = json as? [String: Any],
+                       let newAccessToken = jsonDict["accessToken"] as? String,
+                       let newRefreshToken = jsonDict["refreshToken"] as? String {
+                        // Save the new tokens and calculate new expiration time
+                        UserDefaults.standard.set(newAccessToken, forKey: "accessToken")
+                        UserDefaults.standard.set(newRefreshToken, forKey: "refreshToken")
+                        let expiresAt = Date().addingTimeInterval(30 * 60) // 30 minutes
+                        UserDefaults.standard.set(expiresAt, forKey: "expiresAt")
+                        
+                        completion(.success(newAccessToken))
+                    } else {
+                        completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid response"])))
+                    }
+                    
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-            } catch {
-                completion(.failure(error))
             }
-        }.resume()
     }
-
+    
+    
     // Function to log in a user
     func login(username: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
+        // Check if another request is already in progress
+        if isRequestInProgress {
+            ongoingRequest?.cancel() // Cancel ongoing request if it exists
+        }
+        
+        isRequestInProgress = true // Set the flag to prevent new requests
+        
         let url = "https://dummyjson.com/auth/login"
         let parameters: [String: Any] = [
             "username": username,
@@ -82,9 +99,12 @@ class AuthService {
         ]
         
         // API Request with Alamofire
-        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
+        ongoingRequest = AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default)
             .validate()
-            .responseDecodable(of: User.self) { response in
+            .responseDecodable(of: User.self) { [weak self] response in
+                guard let self = self else { return }
+                defer { self.isRequestInProgress = false } // Reset flag when request completes
+                
                 switch response.result {
                 case .success(let user):
                     // Successful login, save user data and token info

@@ -272,7 +272,11 @@
                                 <rect key="frame" x="20" y="137" width="353" height="622"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fl-76-KKt">
-                                <rect key="frame" x="326" y="715" width="47" height="34"/>
+                                <rect key="frame" x="338" y="714" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="6C2-IE-Hba"/>
+                                    <constraint firstAttribute="height" constant="35" id="wY1-RX-7vt"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="large">
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
@@ -323,7 +327,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="68"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Xr-uL-X8l">
-                                        <rect key="frame" x="147.66666666666663" y="19" width="98.000000000000028" height="30"/>
+                                        <rect key="frame" x="147.66666666666666" y="19" width="98" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -356,7 +360,11 @@
                                 <rect key="frame" x="20" y="137" width="353" height="578"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xOe-d8-tbz">
-                                <rect key="frame" x="326" y="715" width="47" height="34"/>
+                                <rect key="frame" x="338" y="714" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="7NO-sy-bHo"/>
+                                    <constraint firstAttribute="height" constant="35" id="Nck-f8-TL0"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="large">
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
@@ -406,7 +414,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="68"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Visits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8G2-A1-mBT">
-                                        <rect key="frame" x="143.66666666666663" y="19" width="106.00000000000003" height="30"/>
+                                        <rect key="frame" x="143.66666666666666" y="19" width="106" height="30"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -422,7 +430,11 @@
                                 <rect key="frame" x="20" y="137" width="353" height="578"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnC-Sk-mUQ">
-                                <rect key="frame" x="326" y="715" width="47" height="34"/>
+                                <rect key="frame" x="338" y="714" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="KWK-pF-Sm1"/>
+                                    <constraint firstAttribute="width" constant="35" id="O3s-x5-hsc"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="large">
                                     <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
